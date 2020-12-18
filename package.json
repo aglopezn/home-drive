@@ -1,0 +1,19 @@
+{
+  "name": "home-drive",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aglopezn/home-drive.git"
+  },
+  "author": "Giovany Nechiza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aglopezn/home-drive/issues"
+  },
+  "homepage": "https://github.com/aglopezn/home-drive#readme"
+}
