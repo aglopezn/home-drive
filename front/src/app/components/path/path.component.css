@@ -1,3 +1,6 @@
-.r-50p {
-    border-radius: 50%;
+.abs-right {
+    position: absolute;
+    right: 0;
+    top: calc((100% - 18px)/2);
+    transform: translate(-16px, -50%);
 }
