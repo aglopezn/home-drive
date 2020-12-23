@@ -1,4 +1,4 @@
-/* Normalizar el body */
+/* Normalize body */
 body {
     margin: 0;
     padding: 0;
@@ -11,4 +11,18 @@ body {
     min-width: 100vw;
     min-height: 100vh;
     padding: 3rem;
+}
+
+/* Generic classes */
+
+.d-block {
+    display: block;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.r-12 {
+    border-radius: 12px;
 }
