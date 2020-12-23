@@ -1,0 +1,14 @@
+.fixed-action-btn {
+    right: 15%;
+    transform: translateX(-50%);
+}
+@media only screen and (max-width: 993px){
+    .fixed-action-btn {
+        right: calc(15%/2);
+    }
+}
+@media only screen and (max-width: 601px){
+    .fixed-action-btn {
+        right: 5%;
+    }
+}
