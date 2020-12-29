@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as M from 'materialize-css/dist/js/materialize.min.js';
 
 @Component({
   selector: 'app-options-nav',
