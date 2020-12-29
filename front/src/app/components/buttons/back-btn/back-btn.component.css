@@ -3,7 +3,7 @@
 }
 
 .back-btn {
-    min-height: 98px;
+    padding: 19px 0;
     display: flex;
     justify-content: center;
     align-items: center;
