@@ -16,6 +16,7 @@ export class PathContentComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
   }
 
   getContentByPath(dirPath: string){

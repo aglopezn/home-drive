@@ -1,6 +1,6 @@
 <div class="col s5 offset-s1 m3 l2">
-    <div class="card center-align blue-grey darken-2 hoverable pointer r-12 tooltipped" data-position="bottom" data-tooltip="long directory name">
+    <div class="card center-align blue-grey darken-2 hoverable pointer r-12 tooltipped" data-position="bottom" [attr.data-tooltip]="name">
         <i class="material-icons medium yellow-text">folder</i>
-        <span class="valign-wrapper truncate folder__name">long directory name</span>
+        <span class="valign-wrapper truncate folder__name">{{ name }}</span>
     </div>
 </div>

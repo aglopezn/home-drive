@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import * as M from 'materialize-css/dist/js/materialize.min.js';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-folder-btn',
@@ -8,15 +7,12 @@ import * as M from 'materialize-css/dist/js/materialize.min.js';
 })
 export class FolderBtnComponent implements OnInit {
 
+  @Input() name: string;
+
   constructor() { }
 
   ngOnInit(): void {
-    document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('.tooltipped');
-      var instances = M.Tooltip.init(elems, {
-        enterDelay: 500
-      });
-    });
+    
   }
 
 }
