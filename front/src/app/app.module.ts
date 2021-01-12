@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { PathComponent } from './components/path/path.component';
@@ -8,6 +9,7 @@ import { PathContentComponent } from './components/path-content/path-content.com
 import { FolderBtnComponent } from './components/buttons/folder-btn/folder-btn.component';
 import { FileBtnComponent } from './components/buttons/file-btn/file-btn.component';
 import { BackBtnComponent } from './components/buttons/back-btn/back-btn.component';
+import { PathContentService } from './services/path-content.service';
 
 @NgModule({
   declarations: [
@@ -20,9 +22,12 @@ import { BackBtnComponent } from './components/buttons/back-btn/back-btn.compone
     BackBtnComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    PathContentService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

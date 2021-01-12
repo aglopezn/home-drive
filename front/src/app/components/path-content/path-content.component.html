@@ -1,10 +1,5 @@
 <section class="row">
     <app-back-btn></app-back-btn>
-    <app-folder-btn></app-folder-btn>
-    <app-folder-btn></app-folder-btn>
-    <app-folder-btn></app-folder-btn>
-    <app-file-btn></app-file-btn>
-    <app-file-btn></app-file-btn>
-    <app-file-btn></app-file-btn>
-    <app-file-btn></app-file-btn>
+    <app-folder-btn *ngFor="let dir of dirs"></app-folder-btn>
+    <app-file-btn *ngFor="let file of files"></app-file-btn>
 </section>
