@@ -4,3 +4,24 @@
     top: calc((100% - 18px)/2);
     transform: translate(-16px, -50%);
 }
+
+.search {
+    outline: none;
+    transition: background-color 0.5s ease;
+}
+
+.search:focus {
+    animation: bg-color 0.8s ease;
+}
+
+@keyframes bg-color {
+    0% {
+        background-color: transparent;
+    }
+    30% {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    100% {
+        background-color: transparent;
+    }
+}

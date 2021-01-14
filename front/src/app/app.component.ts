@@ -7,5 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'front';
+  path = '/';
+  
+  setPath(dirPath){
+    this.path = dirPath;
+    console.log(this.path);
+  }
+
 
 }

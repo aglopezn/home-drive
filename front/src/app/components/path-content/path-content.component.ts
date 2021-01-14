@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges  } from '@angular/core';
 import { PathContentService } from '../../services/path-content.service';
 
 @Component({
@@ -6,17 +6,27 @@ import { PathContentService } from '../../services/path-content.service';
   templateUrl: './path-content.component.html',
   styleUrls: ['./path-content.component.css']
 })
-export class PathContentComponent implements OnInit {
+export class PathContentComponent implements OnInit, OnChanges {
 
+  @Input() dirPath = '/';
   dirs: any = [];
   files: any = [];
 
+
   constructor(private _pathContentService: PathContentService ) { 
-    this.getContentByPath('/');
+    this.getContentByPath(this.dirPath);
   }
 
   ngOnInit(): void {
     
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    for (let propName in changes) {
+      if (propName === 'dirPath') {
+        this.getContentByPath(changes.dirPath.currentValue);
+      }
+    }
   }
 
   getContentByPath(dirPath: string){

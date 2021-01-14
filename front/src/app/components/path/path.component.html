@@ -1,8 +1,10 @@
 <section class="row">
     <div class="col s12 m8 offset-m2 input-field">
-        <input id="search-path" type="text" class="blue-text text-lighten-5" value="/path/to/directory">
+        <input #searchPath id="search-path" type="text" class="blue-text text-lighten-5" tabindex="1"
+            [value]="path" (keyup.enter)="updatePath(searchPath.value)">
         <label for="search-path" class="active">Search path</label>
-        <a class="abs-right pointer waves-effect waves-light">
+        <a class="abs-right pointer waves-effect waves-light search" tabindex="2"
+            (focus)="updatePath(searchPath.value)" (keyup.enter)="updatePath(searchPath.value)">
             <i class="material-icons">arrow_forward</i>
         </a>
         <span class="helper-text" data-error="The path does not exist."></span>
