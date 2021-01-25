@@ -11,7 +11,6 @@ export class AppComponent {
   
   setPath(dirPath){
     this.path = dirPath;
-    console.log(this.path);
   }
 
 

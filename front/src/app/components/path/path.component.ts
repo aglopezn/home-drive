@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-path',
@@ -7,21 +7,18 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class PathComponent implements OnInit {
 
-  path: string;
+  @Input() path: string;
   @Output() inputPath: EventEmitter<string>;
 
   constructor() {
     this.inputPath = new EventEmitter();
-    this.path = '/';
   }
 
   ngOnInit(): void {
   }
 
   updatePath( value ) {
-    // console.log(`updated path from ${this.path} to ${value}`);
     this.path = value;
-    // console.log(this.path);
     this.inputPath.emit(this.path);
   }
 }

@@ -1,5 +1,9 @@
 <section class="row">
-    <app-back-btn></app-back-btn>
-    <app-folder-btn *ngFor="let dir of dirs" [name]="dir"></app-folder-btn>
+    <app-back-btn
+        (click)="backwardPath()"
+    ></app-back-btn>
+    <app-folder-btn *ngFor="let dir of dirs" [name]="dir"
+        (click)="forwardPath(dir)"    
+    ></app-folder-btn>
     <app-file-btn *ngFor="let file of files" [name]="file"></app-file-btn>
 </section>

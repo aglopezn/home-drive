@@ -17,9 +17,7 @@ export class FileBtnComponent implements OnInit {
   }
 
   ngAfterViewInit():void {
-    
     var elems = document.querySelectorAll('.tooltipped');
-    console.log("document on load");
     var instances = M.Tooltip.init(elems, {
       enterDelay: 500
     });

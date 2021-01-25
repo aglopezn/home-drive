@@ -1,5 +1,6 @@
-import { Component, Input, OnInit, OnChanges, SimpleChanges  } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { PathContentService } from '../../services/path-content.service';
+import * as M from 'materialize-css/dist/js/materialize.min.js';
 
 @Component({
   selector: 'app-path-content',
@@ -8,13 +9,15 @@ import { PathContentService } from '../../services/path-content.service';
 })
 export class PathContentComponent implements OnInit, OnChanges {
 
-  @Input() dirPath = '/';
   dirs: any = [];
   files: any = [];
 
+  @Input() dirPath: string;
+  @Output() enterFolder: EventEmitter<string>;
+
 
   constructor(private _pathContentService: PathContentService ) { 
-    this.getContentByPath(this.dirPath);
+    this.enterFolder = new EventEmitter();
   }
 
   ngOnInit(): void {
@@ -22,6 +25,10 @@ export class PathContentComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
+    var elems = document.querySelectorAll('.tooltipped');
+    var instances = M.Tooltip.init(elems, {
+      enterDelay: 500
+    });
     for (let propName in changes) {
       if (propName === 'dirPath') {
         this.getContentByPath(changes.dirPath.currentValue);
@@ -34,8 +41,28 @@ export class PathContentComponent implements OnInit, OnChanges {
     .subscribe( (res: any) => {
       this.dirs = res.data.directories;
       this.files = res.data.files;
-      console.log(this.dirs);
-      console.log(this.files);
     });
+  }
+
+  forwardPath(dirname:string){
+    this.dirPath = this.dirPath + dirname + '/';
+    this.enterFolder.emit(this.dirPath);
+  }
+
+  backwardPath(){
+    let dirPath:string;
+    let arrPath:string[];
+
+    dirPath = this.dirPath;
+    if (dirPath[dirPath.length-1] === "/"){
+      dirPath = dirPath.slice(0, dirPath.length-1);
+    }
+
+    arrPath = dirPath.split("/");
+    arrPath = arrPath.slice(0, arrPath.length-1);
+    dirPath = arrPath.join("/");
+    dirPath = dirPath === "" ? "/" : arrPath.join("/") + "/"
+
+    this.enterFolder.emit(dirPath);  
   }
 }
